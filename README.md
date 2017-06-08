@@ -46,3 +46,15 @@ $ sudo systemctl start home-assistant@homeassistant.service
 ```
 pihole -up
 ```
+
+### New updating commands
+
+```
+hassctl update-hass && hassctl config && hassctl restart
+```
+```
+hassctl update-hass
+hassctl start
+hassctl stop
+hassctl error
+```
