@@ -51,8 +51,8 @@ media_player:
   - platform: spotify
     client_id: !secret spot_client_id
     client_secret: !secret spot_client_secret
-  - platform: ps4
-    host: !secret ps4_host
+  # - platform: ps4
+    # host: !secret ps4_host
 
 ifttt:
   key: !secret ifttt_key
@@ -86,16 +86,16 @@ switch:
     retain: true
 # Weather Prediction
 sensor:
-  - platform: google_trave_time
-    api_ key: AIzaSyATaH4SSzQmXYRcGWH-gNB6KDNdMuO1COw
+  - platform: google_travel_time
+    api_key: !secret g_travel_key
     name: "Till KIMAB"
     origin: zone.home
     destination:
       place_id: Swerea KIMAB
     options:
       mode: transit
-  - platform: google_trave_time
-    api_ key: AIzaSyATaH4SSzQmXYRcGWH-gNB6KDNdMuO1COw
+  - platform: google_travel_time
+    api_key: !secret g_travel_key
     name: "Till KIMAB"
     origin: zone.home
     destination: 59.336488, 18.030764
