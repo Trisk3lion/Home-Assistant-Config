@@ -10,24 +10,7 @@ homeassistant:
   unit_system: metric
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Stockholm
-  customize:
-    sensor.alarm_clock_hour:
-      hidden: true
-    sensor.alarm_clock_minute:
-      hidden: true
-    sensor.alarm_clock_time:
-      friendly_name: Alarm Clock Setting
-    sensor.alarm_clock_time_long:
-      hidden: true
-    input_boolean.alarm_clock_status:
-      friendly_name: Alarm Clock Status
-      icon: mdi:alarm-check
-    input_slider.alarm_clock_hour:
-      friendly_name: Hour
-      icon: mdi:timer
-    input_slider.alarm_clock_minute:
-      friendly_name: Minute
-      icon: mdi:timer
+  customize: !include customize.yaml
 
 # Enables the frontend
 frontend:
@@ -35,6 +18,15 @@ frontend:
 # Enables configuration UI
 config:
 
+panel_iframe:
+  router:
+    title: 'N66U Dark Knight'
+    icon: mdi:router-wireless
+    url: 'http://192.168.1.1'
+  pi_hole:
+    title: 'Pi-Hole'
+    icon: mdi:raspberrypi
+    url: 'http://192.168.1.29/admin'
 
 http:
   # Uncomment this to add a password (recommended!)
@@ -53,14 +45,14 @@ updater:
 discovery:
 
 nuimo_controller:
+  mac: 'd1:c6:75:c2:4d:7e'
 
 media_player:
   - platform: spotify
     client_id: !secret spot_client_id
     client_secret: !secret spot_client_secret
-  - platform: cast
-#  - platform: ps4
-#    host: !secret ps4_host
+  - platform: ps4
+    host: !secret ps4_host
 
 ifttt:
   key: !secret ifttt_key
@@ -97,7 +89,7 @@ sensor:
   - platform: darksky
     api_key: !secret darksky_key
     monitored_conditions:
-      # - summary
+      - summary
       # - icon
       # - nearest_storm_distance
       # - nearest_storm_bearing
@@ -159,24 +151,8 @@ sensor:
           {%- endif -%}
             {{ states.sensor.alarm_clock_minute.state }}
 
-script:  
-  spotifydemo:
-    alias: 'Spotify on Home'
-    sequence:
-      - service: media_player.select_source
-        data:
-          entity_id: media_player.spotify
-          source: Living room Home
-      - service: media_player.shuffle_set
-        data: 
-          entity_id: media_player.spotify
-          shuffle: 'true'
-      - service: media_player.play_media
-        data:
-          entity_id: media_player.spotify
-          media_content_type: playlist
-        data_template:
-          media_content_id: 'spotify:user:trisk3lion:playlist:1KH7pw5kxsppOdINedp8Ub'
+script: !include scripts.yaml
+
 
 #automation:
   #alias: Startup Notification
@@ -208,6 +184,22 @@ input_boolean:
   alarm_clock_status:
     initial: on
 
+input_select:
+  radio_station:
+    name: 'Select Radio Station:'
+    options:
+      - P3
+      - Bandit
+      - Rix FM
+      - Electric Lounge
+  chromecast_radio:
+    name: 'Select Speakers:'
+    options:
+      - Google Home
+      - Kribbcast
+    initial: Google Home
+    icon: mdi:speaker-wireless
+
 # device_tracker:
   # - platform: tomato
     # host: !secret tomato_ip
@@ -216,3 +208,4 @@ input_boolean:
     # http_id: !secret tomato_id
  
 group: !include groups.yaml
+automation: !include automations.yaml
