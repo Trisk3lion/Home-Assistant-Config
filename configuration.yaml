@@ -44,8 +44,8 @@ updater:
 # Discover some devices automatically
 discovery:
 
-nuimo_controller:
-  mac: 'd1:c6:75:c2:4d:7e'
+# nuimo_controller:
+  # mac: 'd1:c6:75:c2:4d:7e'
 
 media_player:
   - platform: spotify
@@ -119,6 +119,21 @@ sensor:
     display_options:
       - 'time'
       - 'date'
+  - platform: trafikverket
+    api_key: !secret trafikverket_api_key
+    trains:
+    - name: "Train to work"
+      from: Sölvesborg
+      to: Kristianstad C
+      time: "07:28"
+    - name: "Train from work early"
+      from: Kristianstad C
+      to: Sölvesborg
+      time: "16:38"
+    - name: "Train from work late"
+      from: Kristianstad C
+      to: Sölvesborg
+      time: "17:02"
   - platform: systemmonitor
     resources:
      - type: disk_use_percent
