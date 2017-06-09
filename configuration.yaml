@@ -86,6 +86,21 @@ switch:
     retain: true
 # Weather Prediction
 sensor:
+  - platform: google_trave_time
+    api_ key: AIzaSyATaH4SSzQmXYRcGWH-gNB6KDNdMuO1COw
+    name: "Till KIMAB"
+    origin: zone.home
+    destination:
+      place_id: Swerea KIMAB
+    options:
+      mode: transit
+  - platform: google_trave_time
+    api_ key: AIzaSyATaH4SSzQmXYRcGWH-gNB6KDNdMuO1COw
+    name: "Till KIMAB"
+    origin: zone.home
+    destination: 59.336488, 18.030764
+    options:
+      mdoe: transit
   - platform: darksky
     api_key: !secret darksky_key
     monitored_conditions:
