@@ -88,7 +88,7 @@ switch:
 sensor:
   - platform: google_travel_time
     api_key: !secret g_travel_key
-    name: "Till KIMAB"
+    name: Till KIMAB
     origin: zone.home
     destination:
       place_id: Swerea KIMAB
@@ -96,11 +96,11 @@ sensor:
       mode: transit
   - platform: google_travel_time
     api_key: !secret g_travel_key
-    name: "Till KIMAB"
+    name: Till Vici
     origin: zone.home
     destination: 59.336488, 18.030764
     options:
-      mdoe: transit
+      mode: transit
   - platform: darksky
     api_key: !secret darksky_key
     monitored_conditions:
