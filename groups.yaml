@@ -11,7 +11,7 @@ default_view:
     - group.pi_hole
     - group.radio_selection
     - media_player.ps4
-    
+
 
 environment_view:
   view: yes
@@ -20,7 +20,13 @@ environment_view:
   entities:
     - group.environment
     - group.environment_detail
-    
+
+travel_view:
+  view: yes
+  name: "Travel"
+  icon: mdi:train
+    - sensor.till_kimab
+    - sensor.till_vici
 
 alarm_clock:
   name: "Alarm Clock"
@@ -30,7 +36,7 @@ alarm_clock:
     - input_slider.alarm_clock_minute
     - input_boolean.alarm_clock_status
 
- 
+
 
 environment:
   name: "Environment || Forecast"
@@ -57,13 +63,13 @@ environment_detail:
     - sensor.dark_sky_humidity
     - sensor.dark_sky_visibility
     - sun.sun
-    
+
 living_room:
   name: "Living Room"
   entities:
     - switch.corner_lamp
     - script.spotifydemo
-    
+
 network:
   name: "Raspberry Pi Status"
   entities:
@@ -72,18 +78,17 @@ network:
     - sensor.ram_free
     - sensor.disk_use_home
     - sensor.last_boot
-    
+
 pi_hole:
   name: "Pi-Hole"
   entities:
     - sensor.pi_hole_dns_queries_today
     - sensor.pi_hole_ads_blocked_today
     - sensor.pi_hole_ads_percentage_today
-    
+
 radio_selection:
   name: "Radio"
   entities:
   - input_select.radio_station
   - input_select.chromecast_radio
   - script.radio538
-    
