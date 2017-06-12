@@ -12,11 +12,15 @@ homeassistant:
   time_zone: Europe/Stockholm
   customize: !include customize.yaml
 
-# Enables the frontend
-frontend:
+zone:
+  name: KIMAB
+  latitude: 59.405121
+  longitude: 17.947138
 
-# Enables configuration UI
-config:
+zone 2:
+  name: Vici
+  latitude: 59.336505
+  longitude: 18.030701
 
 panel_iframe:
   router:
@@ -40,14 +44,19 @@ http:
 # For more information, please see:
 # https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
-
-# Discover some devices automatically
 discovery:
-
+conversation:
+history:
+logbook:
+frontend:
+config:
+tts:
+  platform: google
 # nuimo_controller:
   # mac: 'd1:c6:75:c2:4d:7e'
 
 media_player:
+  - platform: cast
   - platform: spotify
     client_id: !secret spot_client_id
     client_secret: !secret spot_client_secret
@@ -64,14 +73,7 @@ mqtt:
   username: !secret mqtt_user
   password: !secret mqtt_pass
 
-# Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
 
-# Enables support for tracking state changes over time.
-history:
-
-# View all events in a logbook
-logbook:
 
 # Track the sun
 sun:
@@ -90,15 +92,14 @@ sensor:
     api_key: !secret g_travel_key
     name: Till KIMAB
     origin: zone.home
-    destination:
-      place_id: Swerea KIMAB
+    destination: KIMAB
     options:
       mode: transit
   - platform: google_travel_time
     api_key: !secret g_travel_key
     name: Till Vici
     origin: zone.home
-    destination: 59.336488, 18.030764
+    destination: Vici
     options:
       mode: transit
   - platform: darksky
@@ -183,18 +184,6 @@ sensor:
 
 script: !include scripts.yaml
 
-
-#automation:
-  #alias: Startup Notification
-  #trigger:
-    #platform: ifttt
-    #event_type: media_player.start
-  #action:
-    #service
-# Text to speech
-tts:
-  platform: google
-
 #ssl_certificate: '/etc/letsencrypt/live/kribbstarha.duckdns.org/fullchain.pem'
 #ssl_key: '/etc/letsencrypt/live/kribbstarha.duckdns.org/privkey.pem'
 
@@ -236,6 +225,6 @@ input_select:
     # username: !secret tomato_user
     # password: !secret tomato_pass
     # http_id: !secret tomato_id
- 
+
 group: !include groups.yaml
 automation: !include automations.yaml
