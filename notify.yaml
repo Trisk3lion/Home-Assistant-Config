@@ -1,10 +1,10 @@
 - name: instapush
   platform: instapush
-  api_key: 593e9db6a4c48ac420ee3a9c
-  app_secret: 9a1a29f297af026430421e444db70cf5
+  api_key: !secret instapush_key
+  app_secret: !secret instapush_secret
   event: plants
   tracker: temp
 
 - name: facebook
   platform: facebook
-  page_access_token: EAAGtIFFp35sBAM1btNToVSO11qjAnxgCgPk2PLFdBR9RSM9VFXTdjxEuiCGxf5dt3RFqj7ZAdAnafCyH9eTFtXHfaVqsSpxpWUndD5eC0wdvCTBRAaoUtLjbvDmLVd8fow52BK8RFBzz0awqucqRFeZA1vX3mQ81PbutwxtQZDZD
+  page_access_token: !secret facebook_token

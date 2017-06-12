@@ -50,6 +50,7 @@ history:
 logbook:
 frontend:
 config:
+sun:
 tts:
   platform: google
 # nuimo_controller:
@@ -73,10 +74,6 @@ mqtt:
   username: !secret mqtt_user
   password: !secret mqtt_pass
 
-
-
-# Track the sun
-sun:
 
 switch:
   - platform: mqtt
