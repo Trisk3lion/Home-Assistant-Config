@@ -25,6 +25,7 @@ travel_view:
   view: yes
   name: "Travel"
   icon: mdi:train
+  entities:
     - sensor.till_kimab
     - sensor.till_vici
 
