@@ -225,6 +225,6 @@ input_select:
     # username: !secret tomato_user
     # password: !secret tomato_pass
     # http_id: !secret tomato_id
-
+notify: !include notify.yaml
 group: !include groups.yaml
 automation: !include automations.yaml
