@@ -35,6 +35,8 @@ panel_iframe:
 http:
   # Uncomment this to add a password (recommended!)
   api_password: !secret http_password
+  ssl_certificate: '/etc/letsencrypt/live/kribbstarha.duckdns.org/fullchain.pem'
+  ssl_key: '/etc/letsencrypt/live/kribbstarha.duckdns.org/privkey.pem'
   # Uncomment this if you are using SSL or running in Docker etc
   base_url: !secret http_url
 
@@ -61,8 +63,8 @@ media_player:
   - platform: spotify
     client_id: !secret spot_client_id
     client_secret: !secret spot_client_secret
-  # - platform: ps4
-    # host: !secret ps4_host
+  - platform: ps4
+    host: !secret ps4_host
 
 ifttt:
   key: !secret ifttt_key
@@ -132,21 +134,21 @@ sensor:
     display_options:
       - 'time'
       - 'date'
-  - platform: trafikverket
-    api_key: !secret trafikverket_api_key
-    trains:
-    - name: "Train to work"
-      from: Sölvesborg
-      to: Kristianstad C
-      time: "07:28"
-    - name: "Train from work early"
-      from: Kristianstad C
-      to: Sölvesborg
-      time: "16:38"
-    - name: "Train from work late"
-      from: Kristianstad C
-      to: Sölvesborg
-      time: "17:02"
+  # # - platform: trafikverket
+    # # api_key: !secret trafikverket_api_key
+    # trains:
+    # - name: "Train to work"
+      # from: Sölvesborg
+      # to: Kristianstad C
+      # time: "07:28"
+    # - name: "Train from work early"
+      # from: Kristianstad C
+      # to: Sölvesborg
+      # time: "16:38"
+    # - name: "Train from work late"
+      # from: Kristianstad C
+      # to: Sölvesborg
+      # time: "17:02"
   - platform: systemmonitor
     resources:
      - type: disk_use_percent
@@ -181,8 +183,7 @@ sensor:
 
 script: !include scripts.yaml
 
-#ssl_certificate: '/etc/letsencrypt/live/kribbstarha.duckdns.org/fullchain.pem'
-#ssl_key: '/etc/letsencrypt/live/kribbstarha.duckdns.org/privkey.pem'
+
 
 input_slider:
   alarm_clock_hour:
@@ -216,12 +217,13 @@ input_select:
     initial: Google Home
     icon: mdi:speaker-wireless
 
-# device_tracker:
-  # - platform: tomato
-    # host: !secret tomato_ip
-    # username: !secret tomato_user
-    # password: !secret tomato_pass
-    # http_id: !secret tomato_id
+device_tracker:
+  - platform: tomato
+    host: !secret tomato_ip
+    username: !secret tomato_user
+    password: !secret tomato_pass
+    http_id: !secret tomato_id
+    
 notify: !include notify.yaml
 group: !include groups.yaml
 automation: !include automations.yaml
