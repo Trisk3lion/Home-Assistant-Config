@@ -58,3 +58,8 @@ hassctl start
 hassctl stop
 hassctl error
 ```
+### Update Nodejs and n-installer
+
+```
+n-update -y
+```
