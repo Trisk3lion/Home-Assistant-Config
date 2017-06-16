@@ -58,6 +58,12 @@ tts:
 # nuimo_controller:
   # mac: 'd1:c6:75:c2:4d:7e'
 
+emulated hue:
+  hot_ip: 192.168.1.29
+  expose_by_default: true
+  exposed_domains:
+    - switch
+
 media_player:
   - platform: cast
   - platform: spotify
@@ -103,6 +109,7 @@ sensor:
       mode: transit
   - platform: darksky
     api_key: !secret darksky_key
+    update_interval: '00:05'
     monitored_conditions:
       - summary
       # - icon
