@@ -8,9 +8,7 @@ default_view:
     - media_player.living_room_home
     - media_player.kribbcast
     - group.network
-    - group.pi_hole
     - group.radio_selection
-    - media_player.ps4
 
 
 environment_view:
@@ -21,13 +19,13 @@ environment_view:
     - group.environment
     - group.environment_detail
 
-travel_view:
-  view: yes
-  name: "Travel"
-  icon: mdi:train
-  entities:
-    - sensor.till_kimab
-    - sensor.till_vici
+# travel_view:
+  # view: yes
+  # name: "Travel"
+  # icon: mdi:train
+  # entities:
+    # - sensor.till_kimab
+    # - sensor.till_vici
 
 alarm_clock:
   name: "Alarm Clock"
