@@ -62,4 +62,5 @@ hassctl error
 
 ```
 n-update -y
+n latest
 ```
