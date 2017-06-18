@@ -1,10 +1,10 @@
-- name: instapush
-  platform: instapush
-  api_key: !secret instapush_key
-  app_secret: !secret instapush_secret
-  event: plants
-  tracker: temp
+# - name: instapush
+  # platform: instapush
+  # api_key: !secret instapush_key
+  # app_secret: !secret instapush_secret
+  # event: plants
+  # tracker: temp
 
-- name: facebook
-  platform: facebook
-  page_access_token: !secret facebook_token
+# - name: facebook
+  # platform: facebook
+  # page_access_token: !secret facebook_token
