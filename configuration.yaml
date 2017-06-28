@@ -89,23 +89,23 @@ switch:
     retain: true
 # Weather Prediction
 sensor:
-  # - platform: google_travel_time
-    # api_key: !secret g_travel_key
-    # name: Till KIMAB
-    # origin: zone.home
-    # destination: KIMAB
-    # options:
-      # mode: transit
-  # - platform: google_travel_time
-    # api_key: !secret g_travel_key
-    # name: Till Vici
-    # origin: zone.home
-    # destination: Vici
-    # options:
-      # mode: transit
+  - platform: google_travel_time
+    api_key: !secret g_travel_key
+    name: Till KIMAB
+    origin: zone.home
+    destination: KIMAB
+    options:
+      mode: transit
+  - platform: google_travel_time
+    api_key: !secret g_travel_key
+    name: Till Vici
+    origin: zone.home
+    destination: Vici
+    options:
+      mode: transit
   - platform: darksky
     api_key: !secret darksky_key
-    update_interval: '00:05'
+    update_interval: '00:10'
     monitored_conditions:
       - summary
       # - icon
@@ -132,7 +132,7 @@ sensor:
       - apparent_temperature_max
       - apparent_temperature_min
       - precip_intensity_max
-  - platform: pi_hole
+  # - platform: pi_hole
   - platform: time_date
     display_options:
       - 'time'
@@ -226,6 +226,8 @@ device_tracker:
     username: !secret tomato_user
     password: !secret tomato_pass
     http_id: !secret tomato_id
+    interval_seconds: 20
+    track_new_devices: false
     
 notify: !include notify.yaml
 group: !include groups.yaml

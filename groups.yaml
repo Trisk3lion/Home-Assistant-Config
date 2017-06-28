@@ -2,6 +2,7 @@
 default_view:
   view: yes
   entities:
+    - group.vem_hemma
     - group.living_room
     - group.alarm_clock
     - media_player.spotify
@@ -19,13 +20,13 @@ environment_view:
     - group.environment
     - group.environment_detail
 
-# travel_view:
-  # view: yes
-  # name: "Travel"
-  # icon: mdi:train
-  # entities:
-    # - sensor.till_kimab
-    # - sensor.till_vici
+travel_view:
+  view: yes
+  name: "Travel"
+  icon: mdi:train
+  entities:
+    - sensor.till_kimab
+    - sensor.till_vici
 
 alarm_clock:
   name: "Alarm Clock"
@@ -78,16 +79,22 @@ network:
     - sensor.disk_use_home
     - sensor.last_boot
 
-pi_hole:
-  name: "Pi-Hole"
-  entities:
-    - sensor.pi_hole_dns_queries_today
-    - sensor.pi_hole_ads_blocked_today
-    - sensor.pi_hole_ads_percentage_today
+# pi_hole:
+  # name: "Pi-Hole"
+  # entities:
+    # - sensor.pi_hole_dns_queries_today
+    # - sensor.pi_hole_ads_blocked_today
+    # - sensor.pi_hole_ads_percentage_today
 
 radio_selection:
   name: "Radio"
   entities:
-  - input_select.radio_station
-  - input_select.chromecast_radio
-  - script.radio538
+    - input_select.radio_station
+    - input_select.chromecast_radio
+    - script.radio538
+  
+vem_hemma:
+  name: "Hemma"
+  entities:
+    - device_tracker.android2785d01ab2d86abe
+    - device_tracker.android4429ea1607d52590
