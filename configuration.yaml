@@ -87,6 +87,14 @@ switch:
     payload_on: "on"
     payload_off: "off"
     retain: true
+  - platform: mqtt
+    name: "TV"
+    state_topic: "home/IRtoMQTT" # defined by subjectGTWIRtoMQTT in User_config.h
+    command_topic: "home/commands/IR_SAMSUNG"
+    payload_on: "3772793023"
+    payload_off: "3772793023"
+    optimistic: false
+    retain: true
 # Weather Prediction
 sensor:
   - platform: miflora
