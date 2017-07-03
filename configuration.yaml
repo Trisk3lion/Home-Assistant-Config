@@ -68,8 +68,8 @@ media_player:
   # - platform: ps4
     # host: !secret ps4_host
 
-# ifttt:
-  # key: !secret ifttt_key
+ifttt:
+  key: !secret ifttt_key
 
 mqtt:
   broker: !secret mqtt_ip
@@ -89,6 +89,16 @@ switch:
     retain: true
 # Weather Prediction
 sensor:
+  - platform: miflora
+    mac: 'C4:7C:8D:64:43:C1'
+    median: 1
+    name: "Blomlådan"
+    monitored_conditions:
+      - temperature
+      - moisture
+      - light
+      - battery
+      - conductivity
   - platform: google_travel_time
     api_key: !secret g_travel_key
     name: Till KIMAB

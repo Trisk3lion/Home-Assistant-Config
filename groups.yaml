@@ -19,6 +19,7 @@ environment_view:
   entities:
     - group.environment
     - group.environment_detail
+    - group.blomladan
 
 travel_view:
   view: yes
@@ -98,3 +99,11 @@ vem_hemma:
   entities:
     - device_tracker.android2785d01ab2d86abe
     - device_tracker.android4429ea1607d52590
+
+blomladan:
+  name: "Blomlådan"
+  entities:
+    - sensor.blomladan_temperature
+    - sensor.blomladan_moisture
+    - sensor.blomladan_light_intensity
+    - sensor.blomladan_conductivity  
