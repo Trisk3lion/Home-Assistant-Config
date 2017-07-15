@@ -93,7 +93,7 @@ radio_selection:
     - input_select.radio_station
     - input_select.chromecast_radio
     - script.radio538
-  
+
 vem_hemma:
   name: "Hemma"
   entities:
@@ -106,4 +106,4 @@ blomladan:
     - sensor.blomladan_temperature
     - sensor.blomladan_moisture
     - sensor.blomladan_light_intensity
-    - sensor.blomladan_conductivity  
+    - sensor.blomladan_conductivity

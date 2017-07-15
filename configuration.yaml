@@ -94,7 +94,7 @@ tts:
 
 emulated hue:
   type: google_home
-  host_ip: 192.168.1.29
+  host_ip: !secret hue_host_ip
   listen_port: 80
   expose_by_default: true
   exposed_domains:
@@ -103,8 +103,8 @@ emulated hue:
 
 media_player:
   - platform: cast
-  - platform: spotify
     client_id: !secret spot_client_id
+  - platform: spotify
     client_secret: !secret spot_client_secret
   - platform: ps4
     host: !secret ps4_host
@@ -138,8 +138,8 @@ switch:
     retain: true
   - platform: wake_on_lan
     name: "Battlestation"
-    mac_address: "00-00-00-00-15-28"
-    host: "192.168.1.25"
+    mac_address: !secret Battlestation_mac
+    host: !secret Battlestation_ip
     broadcast_address: 255.255.255.255
     turn_off:
      - service: script.turn_on
