@@ -6,7 +6,7 @@ spotifydemo:
         entity_id: media_player.spotify
         source: Living room Home
     - service: media_player.shuffle_set
-      data: 
+      data:
         entity_id: media_player.spotify
         shuffle: 'true'
     - service: media_player.play_media
@@ -15,7 +15,7 @@ spotifydemo:
         media_content_type: playlist
       data_template:
         media_content_id: 'spotify:user:trisk3lion:playlist:1KH7pw5kxsppOdINedp8Ub'
-        
+
 radio538:
   alias: Play Radio on Chromecast Audio
   sequence:
@@ -40,3 +40,8 @@ radio538:
           {% elif is_state("input_select.radio_station", "Electro Lounge") %} http://wr16-icecast.mtg-r.net/wr16_mp3
           {% endif %}
          media_content_type: 'audio/mp4'
+
+pc_off:
+   alias: 'Turn off Battlestation'
+   sequence:
+   - service: shell_command.off_pc
