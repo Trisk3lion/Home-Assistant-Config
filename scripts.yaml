@@ -1,0 +1,47 @@
+spotifydemo:
+  alias: 'Spotify on Home'
+  sequence:
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.spotify
+        source: Living room Home
+    - service: media_player.shuffle_set
+      data:
+        entity_id: media_player.spotify
+        shuffle: 'true'
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.spotify
+        media_content_type: playlist
+      data_template:
+        media_content_id: 'spotify:user:trisk3lion:playlist:1KH7pw5kxsppOdINedp8Ub'
+
+radio538:
+  alias: Play Radio on Chromecast Audio
+  sequence:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.living_room_home
+        volume_level: '0.35'
+    -  service: media_player.volume_set
+       data:
+         entity_id: media_player.kribbcast
+         volume_level: '0.35'
+    -  service: media_player.play_media
+       data_template:
+         entity_id: >
+          {% if is_state("input_select.chromecast_radio", "Google Home") %} media_player.living_room_home
+          {% elif is_state("input_select.chromecast_radio", "Kribbcast") %} media_player.kribbcast
+          {% endif %}
+         media_content_id: >
+          {% if is_state("input_select.radio_station", "P3") %} http://sverigesradio.se/topsy/direkt/164-hi-mp3
+          {% elif is_state("input_select.radio_station", "Bandit") %} http://fm02-icecast.mtg-r.net/fm02_mp3
+          {% elif is_state("input_select.radio_station", "Rix FM") %} http://fm01-icecast.mtg-r.net/fm01_mp3
+          {% elif is_state("input_select.radio_station", "Electro Lounge") %} http://wr16-icecast.mtg-r.net/wr16_mp3
+          {% endif %}
+         media_content_type: 'audio/mp4'
+
+pc_off:
+   alias: 'Turn off Battlestation'
+   sequence:
+   - service: shell_command.off_pc

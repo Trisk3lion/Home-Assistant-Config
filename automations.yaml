@@ -1,0 +1,32 @@
+# - alias: "Nuimo Light"
+  # trigger:
+    # platform: event
+    # event_type: nuimo_input
+    # event_data:
+    # name: 'Gesture.BUTTON_PRESS'
+  # action:
+    # service: homeassistant.toggle
+    # entity_id: switch.corner_lamp
+
+# - alias: "nuimoliftrotateright"
+  # trigger:
+    # platform: event
+    # event_type: nuimo_input
+    # event_data:
+      # name: 'Gesture.ROTATION'
+      # value: 'RIGHT'
+  # action:
+    # service: homeassistant.toggle
+    # entity_id: switch.corner_lamp
+
+
+# - alias: nuimoliftrotateleft
+  # trigger:
+    # platform: event
+    # event_type: nuimo_input
+    # event_data:
+      # name: 'Gesture.ROTATION'
+      # value: 'LEFT'
+  # action:
+    # service: homeassistant.toggle
+    # entity_id: switch.corner_lamp
