@@ -68,7 +68,9 @@ environment_detail:
 living_room:
   name: "Living Room"
   entities:
+    - switch.arctech_switch
     - switch.corner_lamp
+    - switch.tv
     - switch.battlestation
     - script.spotifydemo
 

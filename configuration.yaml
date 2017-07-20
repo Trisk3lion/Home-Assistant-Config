@@ -121,6 +121,11 @@ mqtt:
 
 switch:
   - platform: mqtt
+    name: "arctech_switch"
+    command_topic: "rf434/send/arctech_switch"
+    payload_on: '{"id":52381518,"unit":15,"on":1}'
+    payload_off: '{"id":52381518,"unit":15,"off":1}'
+  - platform: mqtt
     name: "Corner Lamp"
     state_topic: "smartthings/Corner Lamp/switch"
     command_topic: "smartthings/Corner Lamp/switch"
