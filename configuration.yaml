@@ -99,6 +99,7 @@ emulated_hue:
   exposed_domains:
     - switch
     - media_player
+    - light
 
 media_player:
   - platform: cast
@@ -118,6 +119,15 @@ mqtt:
   username: !secret mqtt_user
   password: !secret mqtt_pass
 
+light:
+    - platform: mqtt
+      name: "Bed light"
+      state_topic: "stat/sonoff2/POWER"
+      command_topic: "cmnd/sonoff2/POWER"
+      qos: 1
+      payload_on: "ON"
+      payload_off: "OFF"
+      retain: true
 
 switch:
   - platform: mqtt
@@ -131,14 +141,6 @@ switch:
     command_topic: "smartthings/Corner Lamp/switch"
     payload_on: "on"
     payload_off: "off"
-    retain: true
-  - platform: mqtt
-    name: "Bed light"
-    state_topic: "stat/sonoff2/POWER"
-    command_topic: "cmnd/sonoff2/POWER"
-    qos: 1
-    payload_on: "ON"
-    payload_off: "OFF"
     retain: true
   - platform: mqtt
     name: "TV"
