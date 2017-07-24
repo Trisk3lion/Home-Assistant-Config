@@ -133,6 +133,14 @@ switch:
     payload_off: "off"
     retain: true
   - platform: mqtt
+    name: "Bed light"
+    state_topic: "stat/sonoff2/POWER"
+    command_topic: "cmnd/sonoff2/POWER"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+  - platform: mqtt
     name: "TV"
     state_topic: "home/IRtoMQTT" # defined by subjectGTWIRtoMQTT in User_config.h
     command_topic: "home/commands/IR_SAMSUNG"

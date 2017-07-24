@@ -8,6 +8,7 @@ default_view:
     - media_player.spotify
     - media_player.living_room_home
     - media_player.kribbcast
+    - media_player.playstation_4
     - group.network
     - group.radio_selection
 
