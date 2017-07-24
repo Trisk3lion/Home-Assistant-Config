@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 *.pid
 *.xml
 *.csr
@@ -8,6 +7,7 @@ www
 OZW_Log.txt
 home-assistant.log
 home-assistant_v2.db
+home-assistant_v2.db*
 *.db-journal
 lib
 deps
@@ -25,31 +25,4 @@ pyozw.sqlite
 html5_push_registrations.conf
 ip_bans.yaml
 /icloud/*
-=======
-*.pid
-*.xml
-*.csr
-*.crt
-*.key
-www
-OZW_Log.txt
-home-assistant.log
-home-assistant_v2.db
-*.db-journal
-lib
-deps
-tts
-secrets.yaml
-known_devices.yaml
-*.conf
-plex.conf
-phue.conf
-harmony_media_room.conf
-pyozw.sqlite
-.*
-!/.gitignore
-!/.travis.yml
-html5_push_registrations.conf
-ip_bans.yaml
-/icloud/*
->>>>>>> 9edfb44bb6f43d8b2e9ba4fa01fdf4b9a24a3d5b
+
