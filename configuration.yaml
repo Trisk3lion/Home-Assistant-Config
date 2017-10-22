@@ -31,8 +31,8 @@ panel_iframe:
 http:
   # Uncomment this to add a password (recommended!)
   api_password: !secret http_password
-  ssl_certificate: /etc/letsencrypt/live/kribbstarha.duckdns.org/fullchain.pem
-  ssl_key: /etc/letsencrypt/live/kribbstarha.duckdns.org/privkey.pem
+  #ssl_certificate: /etc/letsencrypt/live/kribbstarha.duckdns.org/fullchain.pem
+  #ssl_key: /etc/letsencrypt/live/kribbstarha.duckdns.org/privkey.pem
   # Uncomment this if you are using SSL or running in Docker etc
   base_url: !secret http_url
 
@@ -91,26 +91,26 @@ tts:
 # nuimo_controller:
   # mac: 'd1:c6:75:c2:4d:7e'
 
-emulated_hue:
-  type: google_home
-  host_ip: !secret hue_host_ip
-  listen_port: 80
-  expose_by_default: true
-  exposed_domains:
-    - switch
-    - media_player
-    - light
+# emulated_hue:
+#   type: google_home
+#   host_ip: !secret hue_host_ip
+#   listen_port: 80
+#   expose_by_default: true
+#   exposed_domains:
+#     - switch
+#     - media_player
+#     - light
 
 media_player:
   - platform: cast
   - platform: spotify
     client_id: !secret spot_client_id
     client_secret: !secret spot_client_secret
-  - platform: ps4
-    host: !secret ps4_host
+  # - platform: ps4
+  #   host: !secret ps4_host
 
-ifttt:
-  key: !secret ifttt_key
+# ifttt:
+#   key: !secret ifttt_key
 
 mqtt:
   broker: !secret mqtt_ip
@@ -130,11 +130,11 @@ light:
       retain: true
 
 switch:
-  - platform: mqtt
-    name: "arctech_switch"
-    command_topic: "rf434/send/arctech_switch"
-    payload_on: '{"id":52381518,"unit":15,"on":1}'
-    payload_off: '{"id":52381518,"unit":15,"off":1}'
+  # - platform: mqtt
+  #   name: "arctech_switch"
+  #   command_topic: "rf434/send/arctech_switch"
+  #   payload_on: '{"id":52381518,"unit":15,"on":1}'
+  #   payload_off: '{"id":52381518,"unit":15,"off":1}'
   - platform: mqtt
     name: "Corner Lamp"
     state_topic: "smartthings/Corner Lamp/switch"
@@ -142,14 +142,14 @@ switch:
     payload_on: "on"
     payload_off: "off"
     retain: true
-  - platform: mqtt
-    name: "TV"
-    state_topic: "home/IRtoMQTT" # defined by subjectGTWIRtoMQTT in User_config.h
-    command_topic: "home/commands/IR_SAMSUNG"
-    payload_on: "3772793023"
-    payload_off: "3772793023"
-    optimistic: false
-    retain: true
+  # - platform: mqtt
+  #   name: "TV"
+  #   state_topic: "home/IRtoMQTT" # defined by subjectGTWIRtoMQTT in User_config.h
+  #   command_topic: "home/commands/IR_SAMSUNG"
+  #   payload_on: "3772793023"
+  #   payload_off: "3772793023"
+  #   optimistic: false
+  #   retain: true
   - platform: wake_on_lan
     name: "Battlestation"
     mac_address: !secret Battlestation_mac
@@ -161,30 +161,30 @@ switch:
          entity_id: script.pc_off
 # Weather Prediction
 sensor:
-  - platform: miflora
-    mac: 'C4:7C:8D:64:43:C1'
-    median: 1
-    name: "Blomlådan"
-    monitored_conditions:
-      - temperature
-      - moisture
-      - light
-      - battery
-      - conductivity
-  - platform: google_travel_time
-    api_key: !secret g_travel_key
-    name: Till KIMAB
-    origin: zone.home
-    destination: KIMAB
-    options:
-      mode: transit
-  - platform: google_travel_time
-    api_key: !secret g_travel_key
-    name: Till Vici
-    origin: zone.home
-    destination: Vici
-    options:
-      mode: transit
+  # - platform: miflora
+  #   mac: 'C4:7C:8D:64:43:C1'
+  #   median: 1
+  #   name: "Blomlådan"
+  #   monitored_conditions:
+  #     - temperature
+  #     - moisture
+  #     - light
+  #     - battery
+  #     - conductivity
+  # - platform: google_travel_time
+  #   api_key: !secret g_travel_key
+  #   name: Till KIMAB
+  #   origin: zone.home
+  #   destination: KIMAB
+  #   options:
+  #     mode: transit
+  # - platform: google_travel_time
+  #   api_key: !secret g_travel_key
+  #   name: Till Vici
+  #   origin: zone.home
+  #   destination: Vici
+  #   options:
+  #     mode: transit
   - platform: darksky
     api_key: !secret darksky_key
     update_interval: '00:10'

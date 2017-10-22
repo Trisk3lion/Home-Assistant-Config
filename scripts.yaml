@@ -1,20 +1,20 @@
-spotifydemo:
-  alias: 'Spotify on Home'
-  sequence:
-    - service: media_player.select_source
-      data:
-        entity_id: media_player.spotify
-        source: Living room Home
-    - service: media_player.shuffle_set
-      data:
-        entity_id: media_player.spotify
-        shuffle: 'true'
-    - service: media_player.play_media
-      data:
-        entity_id: media_player.spotify
-        media_content_type: playlist
-      data_template:
-        media_content_id: 'spotify:user:trisk3lion:playlist:1KH7pw5kxsppOdINedp8Ub'
+# spotifydemo:
+#   alias: 'Spotify on Home'
+#   sequence:
+#     - service: media_player.select_source
+#       data:
+#         entity_id: media_player.spotify
+#         source: Living room Home
+#     - service: media_player.shuffle_set
+#       data:
+#         entity_id: media_player.spotify
+#         shuffle: 'true'
+#     - service: media_player.play_media
+#       data:
+#         entity_id: media_player.spotify
+#         media_content_type: playlist
+#       data_template:
+#         media_content_id: 'spotify:user:trisk3lion:playlist:1KH7pw5kxsppOdINedp8Ub'
 
 radio538:
   alias: Play Radio on Chromecast Audio

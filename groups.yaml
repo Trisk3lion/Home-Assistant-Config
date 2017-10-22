@@ -98,10 +98,10 @@ vem_hemma:
     - device_tracker.android3de711efefc6bcc1
     - device_tracker.android4429ea1607d52590
 
-blomladan:
-  name: "Blomlådan"
-  entities:
-    - sensor.blomladan_temperature
-    - sensor.blomladan_moisture
-    - sensor.blomladan_light_intensity
-    - sensor.blomladan_conductivity
+# blomladan:
+#   name: "Blomlådan"
+#   entities:
+#     - sensor.blomladan_temperature
+#     - sensor.blomladan_moisture
+#     - sensor.blomladan_light_intensity
+#     - sensor.blomladan_conductivity
