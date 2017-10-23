@@ -113,11 +113,11 @@ media_player:
 #   key: !secret ifttt_key
 
 mqtt:
-  broker: !secret mqtt_ip
-  port: !secret mqtt_port
-  client_id: home-assistant-1
-  username: !secret mqtt_user
-  password: !secret mqtt_pass
+  broker: core-mosquitto
+  #port: !secret mqtt_port
+  #client_id: home-assistant-1
+  #username: !secret mqtt_user
+  #password: !secret mqtt_pass
 
 light:
     - platform: mqtt
