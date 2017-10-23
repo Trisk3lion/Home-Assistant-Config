@@ -19,12 +19,12 @@ script.radio538:
   friendly_name: Start Playing
   icon: mdi:play
 
-switch.corner_lamp:
-  emulated_hue: false
-switch.arctech_switch:
-  emulated_hue: false
-switch.tv:
-  emulated_hue: false
+#switch.corner_lamp:
+#  emulated_hue: false
+#switch.arctech_switch:
+#  emulated_hue: false
+#switch.tv:
+#  emulated_hue: false
 media_player.spotify:
   emulated_hue: false
 media_player.living_room_home:

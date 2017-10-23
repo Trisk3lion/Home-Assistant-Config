@@ -34,7 +34,7 @@ http:
   #ssl_certificate: /etc/letsencrypt/live/kribbstarha.duckdns.org/fullchain.pem
   #ssl_key: /etc/letsencrypt/live/kribbstarha.duckdns.org/privkey.pem
   # Uncomment this if you are using SSL or running in Docker etc
-  base_url: !secret http_url
+  # base_url: !secret http_url
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -47,34 +47,34 @@ discovery:
 
 conversation:
 
-recorder:
-  purge_days: 30
-  include:
-    domains:
-      - sensor
-      - device_tracker
-      - switch
-  exclude:
-    entities:
-      - sensor.till_kimab
-      - sensor.till_vici
-      - sensor.dark_sky_precip
-      - sensor.dark_sky_precip_intensity
-      - sensor.dark_sky_daily_max_precip_intensity
-      - sensor.dark_sky_daily_high_temperature
-      - sensor.dark_sky_apparent_temperature
-      - sensor.dark_sky_daily_low_temperature
-      - sensor.dark_sky_daily_high_apparent_temperature
-      - sensor.dark_sky_temperature
-      - sensor.dark_sky_daily_low_apparent_temperature
-      - sensor.dark_sky_cloud_coverage
-      - sensor.dark_sky_humidity
-      - sensor.dark_sky_visibility
-      - sensor.cpu_temp
-      - sensor.cpu_use
-      - sensor.ram_free
-      - sensor.disk_use_home
-      - sensor.last_boot
+# recorder:
+#   purge_days: 30
+#   include:
+#     domains:
+#       - sensor
+#       - device_tracker
+#       - switch
+#   exclude:
+#     entities:
+#       - sensor.till_kimab
+#       - sensor.till_vici
+#       - sensor.dark_sky_precip
+#       - sensor.dark_sky_precip_intensity
+#       - sensor.dark_sky_daily_max_precip_intensity
+#       - sensor.dark_sky_daily_high_temperature
+#       - sensor.dark_sky_apparent_temperature
+#       - sensor.dark_sky_daily_low_temperature
+#       - sensor.dark_sky_daily_high_apparent_temperature
+#       - sensor.dark_sky_temperature
+#       - sensor.dark_sky_daily_low_apparent_temperature
+#       - sensor.dark_sky_cloud_coverage
+#       - sensor.dark_sky_humidity
+#       - sensor.dark_sky_visibility
+#       - sensor.cpu_temp
+#       - sensor.cpu_use
+#       - sensor.ram_free
+#       - sensor.disk_use_home
+#       - sensor.last_boot
 
 history:
 
@@ -114,20 +114,20 @@ media_player:
 
 mqtt:
   broker: core-mosquitto
-  #port: !secret mqtt_port
-  #client_id: home-assistant-1
-  #username: !secret mqtt_user
-  #password: !secret mqtt_pass
+  port: !secret mqtt_port
+  client_id: home-assistant-1
+  username: !secret mqtt_user
+  password: !secret mqtt_pass
 
 light:
-    - platform: mqtt
-      name: "Bed light"
-      state_topic: "stat/sonoff2/POWER"
-      command_topic: "cmnd/sonoff2/POWER"
-      qos: 1
-      payload_on: "ON"
-      payload_off: "OFF"
-      retain: true
+  - platform: mqtt
+    name: "Bed light"
+    state_topic: "stat/sonoff2/POWER"
+    command_topic: "cmnd/sonoff2/POWER"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
 
 switch:
   # - platform: mqtt
@@ -302,14 +302,14 @@ input_select:
     initial: Google Home
     icon: mdi:speaker-wireless
 
-device_tracker:
-  - platform: tomato
-    host: !secret tomato_ip
-    username: !secret tomato_user
-    password: !secret tomato_pass
-    http_id: !secret tomato_id
-    interval_seconds: 20
-    track_new_devices: false
+# device_tracker:
+#   - platform: tomato
+#     host: !secret tomato_ip
+#     username: !secret tomato_user
+#     password: !secret tomato_pass
+#     http_id: !secret tomato_id
+#     interval_seconds: 20
+#     track_new_devices: false
 
 notify: !include notify.yaml
 group: !include groups.yaml

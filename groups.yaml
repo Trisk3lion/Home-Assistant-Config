@@ -8,7 +8,6 @@ default_view:
     - media_player.spotify
     - media_player.living_room_home
     - media_player.kribbcast
-    - media_player.playstation_4
     - group.network
     - group.radio_selection
 
@@ -20,15 +19,15 @@ environment_view:
   entities:
     - group.environment
     - group.environment_detail
-    - group.blomladan
+    # - group.blomladan
 
-travel_view:
-  view: yes
-  name: "Travel"
-  icon: mdi:train
-  entities:
-    - sensor.till_kimab
-    - sensor.till_vici
+# travel_view:
+#   view: yes
+#   name: "Travel"
+#   icon: mdi:train
+#   entities:
+#     - sensor.till_kimab
+#     - sensor.till_vici
 
 alarm_clock:
   name: "Alarm Clock"
@@ -69,11 +68,8 @@ environment_detail:
 living_room:
   name: "Living Room"
   entities:
-    - switch.arctech_switch
     - switch.corner_lamp
-    - switch.tv
     - switch.battlestation
-    - script.spotifydemo
 
 network:
   name: "Raspberry Pi Status"
@@ -92,11 +88,11 @@ radio_selection:
     - input_select.chromecast_radio
     - script.radio538
 
-vem_hemma:
-  name: "Hemma"
-  entities:
-    - device_tracker.android3de711efefc6bcc1
-    - device_tracker.android4429ea1607d52590
+# vem_hemma:
+#   name: "Hemma"
+#   entities:
+#     - device_tracker.android3de711efefc6bcc1
+#     - device_tracker.android4429ea1607d52590
 
 # blomladan:
 #   name: "Blomlådan"
